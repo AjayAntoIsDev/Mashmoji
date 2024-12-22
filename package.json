@@ -1,0 +1,49 @@
+{
+  "name": "mashmoji",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emoji-mart/data": "^1.2.1",
+    "@emoji-mart/react": "^1.1.1",
+    "@types/emoji-mart": "^3.0.14",
+    "cheerio": "^1.0.0",
+    "emoji-mart": "^5.6.0",
+    "emoji-name-map": "^1.2.9",
+    "emoji-picker-element": "^1.26.0",
+    "emoji-picker-react": "^4.12.0",
+    "emojilib": "^4.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "unicode-emoji-json": "^0.8.0"
+  },
+  "devDependencies": {
+    "@nabla/vite-plugin-eslint": "2.0.4",
+    "@types/node": "20.12.13",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "@vitejs/plugin-react-swc": "3.7.0",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.55.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.4",
+    "node-emoji": "^2.2.0",
+    "postcss": "8.4.33",
+    "prettier": "3.1.0",
+    "prettier-plugin-tailwindcss": "0.4.1",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.2.2",
+    "vite": "5.2.12"
+  }
+}
