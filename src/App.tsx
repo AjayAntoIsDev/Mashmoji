@@ -22,7 +22,7 @@ const App = () => {
     setFirstEmoji(emoji);
     firstEmojiId = emoji.unified;
     setTimeout(() => {
-      fetch(`'https://mashmojiapi.floppy.us.kg/${firstEmojiId}/${secondEmojiId}`)
+      fetch(`https://mashmojiapi.floppy.us.kg/${firstEmojiId}/${secondEmojiId}`)
         .then((response) => response.json())
         .then((data) => setResultEmojiUrl(data.url));
     }, 100);
