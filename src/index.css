@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#epr-category-nav-id {
+display: none;
+}
+
+.EmojiPickerReact.epr-dark-theme{
+ --epr-emoji-fullsize: 64px;
+}
+.epr-emoji-category-label{
+    translate: 0 -1px;
+}
+:root {
+    color-scheme: dark;
+}
