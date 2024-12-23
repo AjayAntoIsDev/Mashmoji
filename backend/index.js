@@ -31,11 +31,13 @@ const limiter = rateLimit({
     max: 100,
     standardHeaders: true,
     legacyHeaders: false,
-    message: {"url":"https://cloud-qn5szuhpy-hack-club-bot.vercel.app/0slow_down_icon.png"}
+    message: {
+        url: "https://cloud-qn5szuhpy-hack-club-bot.vercel.app/0slow_down_icon.png"
+    }
 });
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://mashmoji.floppy.us.kg',
     methods: ['GET'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -44,7 +46,9 @@ app.use(limiter);
 
 app.use((req, res, next) => {
     if (!emojiData) {
-        return res.status(503).json("https://cloud-ks2x4kgzd-hack-club-bot.vercel.app/0unavailable_icon.png")
+        return res.json({
+            url: "https://cloud-ks2x4kgzd-hack-club-bot.vercel.app/0unavailable_icon.png"
+        });
     }
     next();
 });
@@ -52,18 +56,25 @@ app.use((req, res, next) => {
 app.get('/:firstEmoji/:secondEmoji', (req, res) => {
     const {firstEmoji, secondEmoji} = req.params;
     const firstEmojiData = emojiData[firstEmoji];
+
     if (!firstEmojiData) {
-        return res.status(404).json({"url":"https://cloud-7kj5r6n58-hack-club-bot.vercel.app/0not_found_icon_from_photopea.png"})
+        return res.json({
+            url: "https://cloud-7kj5r6n58-hack-club-bot.vercel.app/0not_found_icon_from_photopea.png"
+        });
     }
+
     const combinations = firstEmojiData.combinations[secondEmoji];
     if (!combinations) {
-        return res.status(404).json({"url" :"https://cloud-7kj5r6n58-hack-club-bot.vercel.app/0not_found_icon_from_photopea.png"})
+        return res.json({
+            url: "https://cloud-7kj5r6n58-hack-club-bot.vercel.app/0not_found_icon_from_photopea.png"
+        });
     }
 
     const latestCombination = combinations.find(combo => combo.isLatest) || combinations[0];
-
-    res.json({"url": latestCombination["gStaticUrl"]});
-})
+    res.json({
+        url: latestCombination["gStaticUrl"]
+    });
+});
 
 app.get('/health', (req, res) => {
     res.json({
@@ -73,7 +84,7 @@ app.get('/health', (req, res) => {
     });
 });
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({
         error: 'Internal server error',
@@ -87,7 +98,6 @@ async function startServer() {
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
-        console.log(`Rate limit: ${limiter.max} requests per ${limiter.windowMs / 1000} seconds`);
     });
 }
 
