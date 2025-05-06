@@ -22,7 +22,7 @@ const App = () => {
     setFirstEmoji(emoji);
     firstEmojiId = emoji.unified;
     setTimeout(() => {
-      fetch(`https://mashmojiapi.floppy.us.kg/${firstEmojiId}/${secondEmojiId}`)
+      fetch(`https://mashmojiapi.ajayanto.me/${firstEmojiId}/${secondEmojiId}`)
         .then((response) => response.json())
         .then((data) => setResultEmojiUrl(data.url));
     }, 100);
@@ -32,7 +32,7 @@ const App = () => {
     setSecondEmoji(emoji);
     secondEmojiId = emoji.unified;
     setTimeout(() => {
-      fetch(`https://mashmojiapi.floppy.us.kg/${firstEmojiId}/${secondEmojiId}`)
+      fetch(`https://mashmojiapi.ajayanto.me/${firstEmojiId}/${secondEmojiId}`)
         .then((response) => response.json())
         .then((data) => setResultEmojiUrl(data.url));
     }, 100);
@@ -194,7 +194,7 @@ const App = () => {
             { category: Categories.ACTIVITIES, name: 'Activites' },
           ]}
           onEmojiClick={(emoji) => {
-              console.log(selectedEmojiId)
+            console.log(selectedEmojiId);
             selectedEmojiId === 1
               ? onFirstEmojiPick(emoji)
               : onSecondEmojiPick(emoji);
